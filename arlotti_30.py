@@ -188,6 +188,9 @@ def random_spazi_vuoti():
     #12 num da cancellare e 9 liste da aggiungere buchi
     can_2 = 3   #volte da fare
     can_1 = 6
+    list = [0,1,2,3,4,5,6,7,8]
+    num = random.choice(list)
+    list.remove(num)
 
 def creatore_di_spazi_vuoti(c_e0:list[int],c_e1:list[int],c_e2:list[int],c_e3:list[int],c_e4:list[int],c_e5:list[int],c_e6:list[int],c_e7:list[int],c_e8:list[int]) -> list[int]:
     c_e0.sort()
