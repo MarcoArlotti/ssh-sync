@@ -24,7 +24,7 @@ b) Utilizzando le funzioni precedentemente definite al fine di gestire le varie 
 
 Buona fortuna.
 """
-#fabio
+
 
 import random
 
