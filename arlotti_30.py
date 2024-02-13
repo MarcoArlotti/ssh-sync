@@ -184,15 +184,34 @@ def imposta_cartelle() -> dict[int]:
 
 
 
-def random_spazi_vuoti():
+def random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8):
     #12 num da cancellare e 9 liste da aggiungere buchi
-    can_2 = 3   #volte da fare
-    can_1 = 6
-    list = [0,1,2,3,4,5,6,7,8]
-    num = random.choice(list)
-    list.remove(num)
+    #canc_2 = 3   #volte da fare
+    #canc_1 = 6
+    lista_cont = [c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8] #colonne
+    lista = [c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8]
+    #for i in range(canc_2):
+    colonna = random.choice(lista)
+    lista_cont.remove(colonna)
 
-def creatore_di_spazi_vuoti(c_e0:list[int],c_e1:list[int],c_e2:list[int],c_e3:list[int],c_e4:list[int],c_e5:list[int],c_e6:list[int],c_e7:list[int],c_e8:list[int]) -> list[int]:
+    lista[colonna[n]]
+    lista.remove(colonna)
+    
+    return c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8
+
+
+
+
+
+
+
+
+
+
+
+
+
+#def creatore_di_spazi_vuoti(c_e0:list[int],c_e1:list[int],c_e2:list[int],c_e3:list[int],c_e4:list[int],c_e5:list[int],c_e6:list[int],c_e7:list[int],c_e8:list[int]) -> list[int]:
     c_e0.sort()
     c_e1.sort()
     c_e2.sort()
@@ -215,5 +234,5 @@ def creatore_di_spazi_vuoti(c_e0:list[int],c_e1:list[int],c_e2:list[int],c_e3:li
 
 c0,c1,c2,c3,c4,c5,c6,c7,c8,c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8 = dichiara_cartella()
 c0,c1,c2,c3,c4,c5,c6,c7,c8,c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8 = genera_numeri(c0,c1,c2,c3,c4,c5,c6,c7,c8,c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8)
-c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8 = creatore_di_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8)
+c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8 = random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8)
 print(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8)
