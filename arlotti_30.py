@@ -186,16 +186,14 @@ def imposta_cartelle() -> dict[int]:
 
 def random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8):
     #12 num da cancellare e 9 liste da aggiungere buchi
-    #canc_2 = 3   #volte da fare
+    canc_2 = 3   #volte da fare
     #canc_1 = 6
     lista_cont = [c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8] #colonne
-    lista = [c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8]
     #for i in range(canc_2):
-    colonna = random.choice(lista)
+    colonna = random.choice(lista_cont)
     lista_cont.remove(colonna)
-
-    lista[colonna[n]]
-    lista.remove(colonna)
+    l = 1
+    colonna.pop(l)
     
     return c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8
 
@@ -209,20 +207,6 @@ def random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8):
 
 
 
-
-
-#def creatore_di_spazi_vuoti(c_e0:list[int],c_e1:list[int],c_e2:list[int],c_e3:list[int],c_e4:list[int],c_e5:list[int],c_e6:list[int],c_e7:list[int],c_e8:list[int]) -> list[int]:
-    c_e0.sort()
-    c_e1.sort()
-    c_e2.sort()
-    c_e3.sort()
-    c_e4.sort()
-    c_e5.sort()
-    c_e6.sort()
-    c_e7.sort()
-    c_e8.sort()
-
-    return c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8
 
 
 
