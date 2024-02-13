@@ -190,9 +190,9 @@ def random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8):
     #canc_1 = 6
     lista_cont = [c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8] #colonne
     #for i in range(canc_2):
-    colonna = random.choice(lista_cont)
+    colonna = random.randint(0,2)
     lista_cont.remove(colonna)
-    l = 1
+    l = 0
     colonna.pop(l)
     
     return c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8
