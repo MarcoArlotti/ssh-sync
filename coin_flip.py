@@ -2,7 +2,7 @@
 #from termcolor import colored
 import random
 
-flip = ["you go first","you go as second"]
+flip = ["you are going first","you are going second"]
 while True:
     print(random.choices(flip,weights=[0.1,99]))
 #print("-"*50)
