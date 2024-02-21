@@ -28,7 +28,7 @@ Buona fortuna.
 
 import random
 
-
+negate = 0 #se zero corrisponde a una casella vuota
 
 
 
@@ -190,33 +190,17 @@ def random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8):
     lista_cont = [c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8] #colonne
 
     
-    for i in range(canc_2):
+    for i in range(canc_2): # fixato random
         colonna = random.choice(lista_cont)
         lista_cont.remove(colonna)
 
-        n = [0,1,2]
-        l = random.choice(n)
-        n.remove(l)
-        colonna.pop(l)
-        
-        
+        iniziale = random.randint(0,2)
+        colonna.pop(iniziale)
+        colonna.insert(iniziale,negate) #fruits.insert(1, "orange")
 
-        l = random.choice(n)
-        n.remove(l)
-        
-        colonna.pop(l)
-    
-
-
-    #in teoria funziona
-        
-    #for _ in range(canc_1):
-    #    colonna = random.choice(lista_cont)
-    #    lista_cont.remove(colonna)
-    #    n = [0,1,2]
-    #    l = random.choice(n)
-    #    n.remove(l)
-    #    colonna.pop(l)
+        seconda_pescata = random.randint(0,1)
+        colonna.pop(iniziale) #TODO sono smistati male
+        colonna.insert(seconda_pescata,negate)
 
     return c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8
 
