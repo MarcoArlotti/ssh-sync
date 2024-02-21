@@ -60,6 +60,6 @@ def aggiungi_importo():
         importo = fatture[i]
         #prendo la chiave sconto e lo divido per importo e faccio *100
         scontato = importo / 
-        i["importo_scontato"]
+        i["importo_scontato"]   #TODO cercare di capire come fare la richiesta 1)
         #thisdict["color"] = "red"
 print(fatture)

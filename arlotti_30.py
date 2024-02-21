@@ -197,15 +197,15 @@ def random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8):
         n = [0,1,2]
         l = random.choice(n)
         n.remove(l)
-        print(l,n)
         colonna.pop(l)
         
-         # TO DO: no va il random
+        
+
         l = random.choice(n)
         n.remove(l)
-        print(l,n)
+        
         colonna.pop(l)
-       
+    
 
 
     #in teoria funziona
