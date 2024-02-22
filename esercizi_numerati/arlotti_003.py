@@ -12,11 +12,11 @@ giorno = int(imput("mettere giono   "))
 mese = int(imput("mettere mese  "))
 anno = int(imput("mettere anno  "))
 if  giorno > 31 and giorno < 1:
-    print(ERRORE NEL GIORNO!)
+    print("ERRORE NEL GIORNO!")
 elif  mese > 12 and mese < 1:
-    print(ERRORE NEL MESE!)
+    print("ERRORE NEL MESE!")
 elif  anno > 2100 and anno < 1:
-    print(ERRORE NEL ANNO!)
+    print("ERRORE NEL ANNO!")
 gennaio =31
 febbraio =29
 marzo =31
