@@ -13,13 +13,23 @@ Read the file exercise1.txt line by line and print each line to the console.
 Exercise 5: Copy a File
 Create a copy of the file exercise1.txt and name it exercise1_copy.txt.
 """
+import os
+f = open("exercise1.txt","w")
+f.write("Hello, World!\nWelcome to file handling in python.\n") #creazione del file python
+f.close()
 
-f = open("exercice1.txt","w")
-f.write("Hello, World!\nWelcome to file handling in python.")
-f.close()
-f = open("exercice1.txt","r")
+f = open("exercise1.txt","r") #print del file intero
 print(f.read())
-f.close
-f = open("exercice1.txt","a")
-f.write("\nthis line was appended.")
 f.close()
+
+f = open("exercise1.txt","a")
+f.write("this line was appended.\n") #aggiungi una riga
+f.close()
+
+f = open("exercise1.txt", "r") #riga per riga
+for i in f:
+  print(i)
+f.close
+
+f = open("exercise1.txt","r")
+os.
