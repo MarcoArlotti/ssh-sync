@@ -32,4 +32,4 @@ for i in f:
 f.close
 
 f = open("exercise1.txt","r")
-os.
+e = open("") #append copio un file uguale
