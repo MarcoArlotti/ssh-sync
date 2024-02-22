@@ -173,6 +173,16 @@ def genera_numeri(c0:list[int],c1:list[int],c2:list[int],c3:list[int],c4:list[in
     num = random.choice(c8)
     c8.remove(num)
     c_e8.append(num)
+
+    c_e0.sort()
+    c_e1.sort()
+    c_e2.sort()
+    c_e3.sort()
+    c_e4.sort()
+    c_e5.sort()
+    c_e6.sort()
+    c_e7.sort()
+    c_e8.sort()
     return c0,c1,c2,c3,c4,c5,c6,c7,c8,c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8
 #con sort mette in ordine le liste(i valori)
 
@@ -189,19 +199,25 @@ def random_spazi_vuoti(c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8):
     canc_1 = 4
     lista_cont = [c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8] #colonne
 
-    
     for i in range(canc_2): # fixato random
         colonna = random.choice(lista_cont)
-        lista_cont.remove(colonna)
-
+        lista_cont.remove(colonna) 
         iniziale = random.randint(0,2)
         colonna.pop(iniziale)
-        colonna.insert(iniziale,negate) #fruits.insert(1, "orange")
+        colonna.insert(iniziale,"primo ciclo")
 
         seconda_pescata = random.randint(0,1)
-        colonna.pop(iniziale) #TODO sono smistati male
-        colonna.insert(seconda_pescata,negate)
+        colonna.pop(iniziale) 
+        colonna.insert(seconda_pescata,"primo del secondo")
 
+
+    for j in range(canc_1): #cancellare di 1
+        colonna = random.choice(lista_cont)
+        lista_cont.remove(colonna) 
+        iniziale = random.randint(0,2)
+        colonna.pop(iniziale)
+        colonna.insert(iniziale,"secondo ciclo")
+        
     return c_e0,c_e1,c_e2,c_e3,c_e4,c_e5,c_e6,c_e7,c_e8
 
 
