@@ -1,9 +1,0 @@
-#es6
-#1. ask for the user two number
-#2. convert the user's input to integears
-#3.use if-else statements and logical operators to determine whether the two number are both even, both odd, or one even and one odd
-#4.print the result
-num1 = int(input("insert number 1 "))
-num2 = int(input("insert number 2 "))
-if num1 % 2 = 0:
-    print()

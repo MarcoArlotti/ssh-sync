@@ -14,6 +14,7 @@ Exercise 5: Copy a File
 Create a copy of the file exercise1.txt and name it exercise1_copy.txt.
 """
 import os
+
 f = open("exercise1.txt","w")
 f.write("Hello, World!\nWelcome to file handling in python.\n") #creazione del file python
 f.close()
@@ -27,9 +28,8 @@ f.write("this line was appended.\n") #aggiungi una riga
 f.close()
 
 f = open("exercise1.txt", "r") #riga per riga
-for i in f:
-  print(i)
-f.close
+with open("exercise1_copy.txt","a") as e:
+  for riga in f:
+    print(riga)
+    e.write((riga))
 
-f = open("exercise1.txt","r")
-e = open("") #append copio un file uguale
