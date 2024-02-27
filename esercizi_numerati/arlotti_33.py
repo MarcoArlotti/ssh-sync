@@ -11,8 +11,10 @@ svolga le seguenti funzioni:
 - Definire apposite funzioni di lettura e scrittura da/sul file JSON.
 - Definire eventuali altre funzioni utili ai fini dell'esercizio.
 
-Si crei un file JSON di esempio copiando la seguente lista:
-[
+
+"""
+import json
+fabio = [
 {"id":"Monticelli",
 "importo":245.78,
 "sconto_fattura":10
@@ -21,7 +23,7 @@ Si crei un file JSON di esempio copiando la seguente lista:
 "importo":325.71,
 "sconto_fattura":12
 },
-{"id":"Romagna",
+{"id":"romagna",
 "importo":245.78,
 "sconto_fattura":8
 },
@@ -54,4 +56,12 @@ Si crei un file JSON di esempio copiando la seguente lista:
 "sconto_fattura":22
 },
 ]
-"""
+x = json.dumps(fabio)
+with open("file_json.json","w") as file_json:
+    try:
+        mylist = json.load(file_json)
+    except:
+        mylist = []
+mylist.append(fabio)
+with open("file_json.json","w") as file_json:
+    json.dump(mylist,file_json,indent = 4)
