@@ -16,7 +16,6 @@ svolga le seguenti funzioni:
 import json
 
 
-
 fatture = [
 {"id":"Monticelli",
 "importo":245.78,
@@ -88,8 +87,13 @@ def crea_file_json(fatture):
     
 def aggiungi_fatture(fatture) -> None:  #mostri la lista "fabio"/"fatture" e aggiunga la key "importo_scontato" al quale associa il valore dell'importo scontato in base alla percentuale 
                                         #indicata alla chiave "sconto_fattura";
-   print(fatture)
-   choice = input(str("a chi si vuole aggiungere la chiave sconto fatture (id)?"))
+    print(fatture)
+   
+   
+    choice = input(str("a chi si vuole aggiungere la chiave sconto fatture (id)?"))
+    for i in fatture:
+        if i["id"] == choice:   #percentuale TODO
+            i["importo_scontato"]              
 
 
 
