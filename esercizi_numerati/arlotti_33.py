@@ -14,6 +14,10 @@ svolga le seguenti funzioni:
 
 """
 import json
+
+f = open("fabio.txt","w")
+
+
 fabio = [
 {"id":"Monticelli",
 "importo":245.78,
@@ -56,12 +60,35 @@ fabio = [
 "sconto_fattura":22
 },
 ]
-x = json.dumps(fabio)
-with open("file_json.json","w") as file_json:
-    try:
-        mylist = json.load(file_json)
-    except:
-        mylist = []
-mylist.append(fabio)
-with open("file_json.json","w") as file_json:
-    json.dump(mylist,file_json,indent = 4)
+
+def main():
+
+    crea_file_json() #TODO
+    scrivi_file_json_da_lista()
+
+    leggi_file_json_come_lista()
+
+    mostra_fatture()
+    aggiungi_importo_scontato()
+
+    
+
+    aggiungi_fattura()
+    mostra_fatture()
+
+
+
+def crea_file_json(fabio):
+    pass
+    
+
+def leggi_file_json_come_lista(nome_file: str) -> list:
+    pass
+def scrivi_file_json_da_lista(nome_file: str, lista: list) -> None:
+    pass
+def mostra_fatture(lista: list) -> None:
+    pass
+def aggiungi_fattura(fatture: list, nome_file: str) -> list:
+    pass
+def aggiungi_importo_scontato(fatture: list, idx: int) -> list:
+    pass
