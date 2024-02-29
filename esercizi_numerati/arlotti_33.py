@@ -15,10 +15,9 @@ svolga le seguenti funzioni:
 """
 import json
 
-f = open("fabio.txt","w")
 
 
-fabio = [
+fatture = [
 {"id":"Monticelli",
 "importo":245.78,
 "sconto_fattura":10
@@ -61,34 +60,43 @@ fabio = [
 },
 ]
 
-def main():
 
-    crea_file_json() #TODO
-    scrivi_file_json_da_lista()
 
-    leggi_file_json_come_lista()
 
-    mostra_fatture()
-    aggiungi_importo_scontato()
+def main(fatture):
+
+    crea_file_json(fatture) #done
+
+
+
+
+    aggiungi_fatture(fatture)#TODO
+    #aggiungi_importo_scontato()
 
     
 
-    aggiungi_fattura()
-    mostra_fatture()
+    #aggiungi_fattura()
+    #mostra_fatture()
 
 
 
-def crea_file_json(fabio):
-    pass
+def crea_file_json(fatture):
+
+   with open("dati_es_33.json", "w") as f:
+    # usa json.dump per scrivere i dati nel file
+    json.dump(fatture, f,indent=4) #crea e formatta per bene i dati
     
+def aggiungi_fatture(fatture) -> None:  #mostri la lista "fabio"/"fatture" e aggiunga la key "importo_scontato" al quale associa il valore dell'importo scontato in base alla percentuale 
+                                        #indicata alla chiave "sconto_fattura";
+   print(fatture)
+   choice = input(str("a chi si vuole aggiungere la chiave sconto fatture (id)?"))
 
-def leggi_file_json_come_lista(nome_file: str) -> list:
-    pass
-def scrivi_file_json_da_lista(nome_file: str, lista: list) -> None:
-    pass
-def mostra_fatture(lista: list) -> None:
-    pass
+
+
+
+
 def aggiungi_fattura(fatture: list, nome_file: str) -> list:
     pass
 def aggiungi_importo_scontato(fatture: list, idx: int) -> list:
     pass
+main(fatture)
