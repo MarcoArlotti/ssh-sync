@@ -15,8 +15,6 @@ Questo esercizio richiede una gestione avanzata delle liste e dei dizionari, ten
 
 
 def main():
-    pass
-def choice():
     scelta = input(str("1\n2\n3\n4\n5\n6\n\n"))
     match scelta:
         case "1":
