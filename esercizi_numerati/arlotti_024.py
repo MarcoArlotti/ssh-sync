@@ -20,19 +20,19 @@ def main():
     scelta = input(str("1\n2\n3\n4\n5\n6\n\n"))
     match scelta:
         case "1":
-            crea_dipendente()
+            crea_dipendente(lista_dipendenti)
         case "2":
-            print_solo_nomi_dipendenti()
+            print_solo_nomi_dipendenti(lista_dipendenti)
         case "3":
-            aggiungi_progetto_e_costo_orario()
+            aggiungi_progetto_e_costo_orario(lista_progetti)
         case "4":
-            assegna_impiego()
-#        case "5":
-#            print_dipendenti_e_stipendi(): #TODO
+            assegna_impiego(lista_dipendenti,lista_progetti)
+        case "5":
+            print_dipendenti_e_stipendi(lista_dipendenti)
 #        case "6":
 #            print_ore_lavorate_tot_e_budget(): #TODO
 
-def crea_dipendente():
+def crea_dipendente(lista_dipendenti):
     nome = str(input("inserire il nome del dipendente che si vuole aggiungere\n\n"))
     #ruolo = str(input("inserire che ruolo assegnargli\n\n"))
     #stip_iniz = float(input("inserire lo stipendio iniziale da assegnarli\n\n"))
@@ -46,11 +46,19 @@ def crea_dipendente():
 
 
 
-def print_solo_nomi_dipendenti():
+def print_solo_nomi_dipendenti(lista_dipendenti):
     print("lista dipendenti;\n")
     for i in lista_dipendenti:
         nome = i["nome"]
         print(nome)
+        
+
+
+def print_dipendenti_e_stipendi(lista_dipendenti):
+    print("lista dipendenti e stipendi;\n")
+    for i in lista_dipendenti:
+        print(i)
+
 
 
 def aggiungi_progetto_e_costo_orario():
@@ -68,11 +76,24 @@ def aggiungi_progetto_e_costo_orario():
 
 def assegna_impiego():
     dip_scelto = str(input("inserire il nome del dipendente a cui assegnarlo a un progetto\n\n"))
-    progetto = str(input("inserire a che progetto assegnare il suddetto dipendente\n\n"))
-    for i in lista_dipendenti:
-        x = lista_dipendenti[i["nome"]]
-        if dip_scelto == x:
-            progetto.append(lista_dipendenti[i])
+    progetto_scelt = str(input("inserire a che progetto assegnare il suddetto dipendente\n\n"))
+    
+    for dipendente in lista_dipendenti:
+        
+        if dip_scelto == dipendente["nome"]:
+
+            print("trovato")
+
+            for progetto in lista_progetti:
+                if progetto == progetto_scelt:
+                    progetto_scelt.append(dip_scelto)
+                    
+        else:
+            print("dipendente non trovato")
+    
+    
+
+
 
 
 
@@ -82,8 +103,9 @@ def assegna_impiego():
 
 
 while True:
-    x = str(input("\n\ncontinuare ad eseguire il programma?\n\nyes,no\n\n"))
+    x = "yes" #TODO str(input("\n\ncontinuare ad eseguire il programma?\n\nyes,no\n\n"))
     if x == "yes":
+        print()
         pass
     else:
         print("\n\nuscendo dal programma...")
