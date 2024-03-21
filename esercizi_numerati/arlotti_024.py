@@ -17,7 +17,7 @@ Buona gestione aziendale!
 lista_dipendenti = []
 lista_progetti = []
 def main():
-    scelta = input(str("1\n2\n3\n4\n5\n6\n\n"))
+    scelta = input(str("1 crea dip\n2 print solo nomi\n3 aggiungi progetto e costo orario\n4 assegna impiego \n5 print dipendenti e stipendi\n6| print ore lavorate totali e budget\n\n"))
     match scelta:
         case "1":
             crea_dipendente(lista_dipendenti)
@@ -61,7 +61,7 @@ def print_dipendenti_e_stipendi(lista_dipendenti):
 
 
 
-def aggiungi_progetto_e_costo_orario():
+def aggiungi_progetto_e_costo_orario(lista_progetti):
     nome = str(input("inserire il nome per il progetto\n\n"))
     budget = float(input("inserire il budget del progetto\n\n"))
     costo_all_ora = float(input("inserisci il costo per ora del progetto\n\n"))
@@ -74,22 +74,34 @@ def aggiungi_progetto_e_costo_orario():
     lista_progetti.append(progetto)
 
 
-def assegna_impiego():
+def assegna_impiego(lista_dipendenti,lista_progetti):
     dip_scelto = str(input("inserire il nome del dipendente a cui assegnarlo a un progetto\n\n"))
-    progetto_scelt = str(input("inserire a che progetto assegnare il suddetto dipendente\n\n"))
-    
+    progetto_scelto = str(input("inserire a che progetto assegnare il suddetto dipendente\n\n"))
+
+    dipendente_trovato = False
+
     for dipendente in lista_dipendenti:
         
         if dip_scelto == dipendente["nome"]:
 
-            print("trovato")
-
+            progetto_trovato = False
             for progetto in lista_progetti:
-                if progetto == progetto_scelt:
-                    progetto_scelt.append(dip_scelto)
-                    
-        else:
-            print("dipendente non trovato")
+                if progetto == progetto_scelto:
+                    print(f"Trovato il dipendente {dip_scelto}")
+                    progetto_trovato = True
+                    # progetto_scelto.append(dip_scelto) # errore
+                    break
+
+            if progetto_trovato == False:
+                print(f"Non trovato il progetto {progetto_scelto}")
+
+            print(f"Trovato il dipendente {dip_scelto}")
+            dipendente_trovato = True
+            break
+
+
+    if dipendente_trovato == False:
+        print(f"Non trovato il dipendente {dip_scelto}")
     
     
 
