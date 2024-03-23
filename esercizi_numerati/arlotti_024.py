@@ -34,13 +34,13 @@ def main():
 
 def crea_dipendente(lista_dipendenti):
     nome = str(input("inserire il nome del dipendente che si vuole aggiungere\n\n"))
-    #ruolo = str(input("inserire che ruolo assegnargli\n\n"))
-    #stip_iniz = float(input("inserire lo stipendio iniziale da assegnarli\n\n"))
+    ruolo = str(input("inserire che ruolo assegnargli\n\n"))
+    stip_iniz = float(input("inserire lo stipendio iniziale da assegnarli\n\n"))
 
     dipendente = {
         "nome":nome,
-        #"ruolo":ruolo, #TODO da cavare il commento!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        #"stipendio_iniziale":stip_iniz,
+        "ruolo":ruolo, #TODO da cavare il commento!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        "stipendio_iniziale":stip_iniz
     }
     lista_dipendenti.append(dipendente)
 
@@ -56,8 +56,11 @@ def print_solo_nomi_dipendenti(lista_dipendenti):
 
 def print_dipendenti_e_stipendi(lista_dipendenti):
     print("lista dipendenti e stipendi;\n")
-    for i in lista_dipendenti:
-        print(i)
+    for dipendente in lista_dipendenti:
+        nome = dipendente["nome"]
+        ruolo = dipendente["ruolo"]
+        stipendio_iniziale = dipendente["stipendio_iniziale"]
+        print(f"nome:{nome}, ruolo:{ruolo}, stipendio:{stipendio_iniziale} Euro.\n")
 
 
 
@@ -69,7 +72,8 @@ def aggiungi_progetto_e_costo_orario(lista_progetti):
         "costo_all_ora":costo_all_ora, 
         "nome":nome,
         "budget":budget,
-    #    "costo_orario":costo_orario, !!!per ogni ora di lavoro viene sottratto tot dal budget
+        #"costo_orario":costo_orario, #!!!per ogni ora di lavoro viene sottratto tot dal budget
+        "dipendenti_assegnati":[]
     }
     lista_progetti.append(progetto)
 
@@ -86,10 +90,9 @@ def assegna_impiego(lista_dipendenti,lista_progetti):
 
             progetto_trovato = False
             for progetto in lista_progetti:
-                if progetto == progetto_scelto:
+                if progetto["nome"] == progetto_scelto:
                     print(f"Trovato il dipendente {dip_scelto}")
                     progetto_trovato = True
-                    # progetto_scelto.append(dip_scelto) # errore
                     break
 
             if progetto_trovato == False:
@@ -100,8 +103,22 @@ def assegna_impiego(lista_dipendenti,lista_progetti):
             break
 
 
-    if dipendente_trovato == False:
+    if dipendente_trovato == False: #se il DIPENDENTE non viene trovato
         print(f"Non trovato il dipendente {dip_scelto}")
+    elif progetto_trovato == False: #se il PROGETTO non viene trovato
+        print(f"Non trovato il progetto {progetto_scelto}")
+    elif progetto_trovato == True and dipendente_trovato == True:
+
+        trovato_dipendente = dipendente["nome"]
+
+        lista_progetti[progetto]["dipendenti_assegnati"].append(trovato_dipendente)#BUG
+
+        print(lista_progetti)
+    
+
+
+
+
     
     
 
