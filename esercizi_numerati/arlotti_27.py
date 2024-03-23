@@ -9,7 +9,8 @@ Scrivere una funzione alla quale passato un numero intero restituisca True se es
 def is_pari(num: int) ->bool:
 
 Funzione 3:
-Scrivere una funzione che data in input una lista_inp. Calcoli la somma dei quadrati dei numeri pari presenti nella lista_inp e restituisca tale valore.
+Scrivere una funzione che data in input una lista_inp. Calcoli la somma dei quadrati dei numeri pari presenti nella lista_inp 
+e restituisca tale valore.
 def somma_quadrati (lista_valori: list[int]) -> int:
 """
 

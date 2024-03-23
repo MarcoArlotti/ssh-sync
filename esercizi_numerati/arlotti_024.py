@@ -111,10 +111,11 @@ def assegna_impiego(lista_dipendenti,lista_progetti):
 
         trovato_dipendente = dipendente["nome"]
 
-        lista_progetti[progetto]["dipendenti_assegnati"].append(trovato_dipendente)#BUG
+        progetto["dipendenti_assegnati"].append(trovato_dipendente)
 
         print(lista_progetti)
-    
+        
+
 
 
 
