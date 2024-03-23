@@ -17,7 +17,7 @@ Buona gestione aziendale!
 lista_dipendenti = []
 lista_progetti = []
 def main():
-    scelta = input(str("1 crea dip\n2 print solo nomi\n3 aggiungi progetto e costo orario\n4 assegna impiego \n5 print dipendenti e stipendi\n6| print ore lavorate totali e budget\n\n"))
+    scelta = input(str("1 crea dip\n2 print solo nomi\n3 aggiungi progetto e costo orario\n4 assegna impiego \n5 print dipendenti e stipendi (solo non assegnati)\n6 print ore lavorate totali e budget di un progetto e i dipendenti assegnati\n con relativi nomi e stipendi\n\n"))
     match scelta:
         case "1":
             crea_dipendente(lista_dipendenti)
@@ -29,8 +29,9 @@ def main():
             assegna_impiego(lista_dipendenti,lista_progetti)
         case "5":
             print_dipendenti_e_stipendi(lista_dipendenti)
-#        case "6":
-#            print_ore_lavorate_tot_e_budget(): #TODO
+        case "6":
+            print_ore_lavorate_tot_e_budget(lista_progetti)
+
 
 def crea_dipendente(lista_dipendenti):
     nome = str(input("inserire il nome del dipendente che si vuole aggiungere\n\n"))
@@ -39,8 +40,9 @@ def crea_dipendente(lista_dipendenti):
 
     dipendente = {
         "nome":nome,
-        "ruolo":ruolo, #TODO da cavare il commento!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        "stipendio_iniziale":stip_iniz
+        "ruolo":ruolo,
+        "stipendio_iniziale":stip_iniz,
+        "stipendio_finale":0
     }
     lista_dipendenti.append(dipendente)
 
@@ -60,7 +62,7 @@ def print_dipendenti_e_stipendi(lista_dipendenti):
         nome = dipendente["nome"]
         ruolo = dipendente["ruolo"]
         stipendio_iniziale = dipendente["stipendio_iniziale"]
-        print(f"nome:{nome}, ruolo:{ruolo}, stipendio:{stipendio_iniziale} Euro.\n")
+        print(f"nome:{nome}, ruolo:{ruolo}, stipendio:{stipendio_iniziale} Euro.\n") # non va con quelli assegnati
 
 
 
@@ -71,8 +73,7 @@ def aggiungi_progetto_e_costo_orario(lista_progetti):
     progetto = {
         "costo_all_ora":costo_all_ora, 
         "nome":nome,
-        "budget":budget,
-        #"costo_orario":costo_orario, #!!!per ogni ora di lavoro viene sottratto tot dal budget
+        "budget":budget,  
         "dipendenti_assegnati":[]
     }
     lista_progetti.append(progetto)
@@ -108,32 +109,71 @@ def assegna_impiego(lista_dipendenti,lista_progetti):
     elif progetto_trovato == False: #se il PROGETTO non viene trovato
         print(f"Non trovato il progetto {progetto_scelto}")
     elif progetto_trovato == True and dipendente_trovato == True:
+        #aggiungere ore da assegnargli al dipendente
 
-        trovato_dipendente = dipendente["nome"]
+        ore_da_assegnare = int(input("inserire quante ore di lavoro assegnare per il suddetto dipendente(in ore, senza i minuti)"))
 
-        progetto["dipendenti_assegnati"].append(trovato_dipendente)
+        dipendente["ore_assegnate"] = ore_da_assegnare #aggiunta una nuova KEY al dizionario dipendente (solo il dipendente scelto)
+
+        progetto["dipendenti_assegnati"].append(dipendente)
 
         print(lista_progetti)
+
+    for progetto in lista_progetti:
+        for dipendente_asseganto in progetto["dipendenti_assegnati"]:
+            #calcolo ore assegnate(del dipendente)*costo all'ora(del progetto) -> 
+            #aggiungere il risultato alla chiave "costo_calcolato"(da aggiungre la chiave sul momento) e aggiornare lo stipendio dei dipendenti
+            ore_lavoro_di_un_dipendente = dipendente_asseganto["ore_assegnate"]
+            costo_all_ora_progetto = progetto["costo_all_ora"]
+
+            momentaneo = ore_lavoro_di_un_dipendente * costo_all_ora_progetto # ore di lav * euro_all'ora -> momentaneo + stip_iniziale
+            
+            #diminuire il budget
+            budget_prima = progetto["budget"]
+            progetto["budget"] = budget_prima - momentaneo
+
+
+            stip_iniziale = dipendente_asseganto["stipendio_iniziale"]
+            momentaneo = momentaneo + stip_iniziale
+            """
+            thisdict =	{
+            "brand": "Ford",
+            "model": "Mustang",
+            "year": 1964
+            }
+            thisdict["year"] = 2018
+            """
+            dipendente["stipendio_finale"] = momentaneo #aggiornato lo stipendio finale
+            return lista_dipendenti,lista_progetti
+
+
+
+
+
+def print_ore_lavorate_tot_e_budget(lista_progetti):
+    print("lista dei progetti;\n\n")
+    for progetto in lista_progetti:
         
+        costo_all_ora_prog = progetto["costo_all_ora"]
+        budget_prog = progetto["budget"]
+        nome_prog = progetto["nome"]
+        print(f"nome:{nome_prog}, budget:{budget_prog}, costo all'ora:{costo_all_ora_prog}.")
+
+        dipendenti_assegani = progetto["dipendenti_assegnati"]
+        print("lista dei dipendenti;\n\n")
+
+        for dipendente in dipendenti_assegani:
 
 
 
-
-
-    
-    
-
-
-
-
-
-
-
-
+            nome = dipendente["nome"]
+            stipendio = dipendente["stipendio_finale"]
+            ruolo = dipendente["ruolo"]
+            print(f"nome:{nome}, stipendio:{stipendio}, ruolo: {ruolo}.\n")
 
 
 while True:
-    x = "yes" #TODO str(input("\n\ncontinuare ad eseguire il programma?\n\nyes,no\n\n"))
+    x = str(input("\n\ncontinuare ad eseguire il programma?\n\nyes,no\n\n"))
     if x == "yes":
         print()
         pass
