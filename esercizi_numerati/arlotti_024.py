@@ -26,7 +26,7 @@ def main():
         case "3":
             aggiungi_progetto_e_costo_orario()
         case "4":
-            assegna_impiego()
+            assegna_impiego(lista_dipendenti)
 #        case "5":
 #            print_dipendenti_e_stipendi(): #TODO
 #        case "6":
@@ -66,13 +66,15 @@ def aggiungi_progetto_e_costo_orario():
     lista_progetti.append(progetto)
 
 
-def assegna_impiego():
+def assegna_impiego(lista_dipendenti):
     dip_scelto = str(input("inserire il nome del dipendente a cui assegnarlo a un progetto\n\n"))
     progetto = str(input("inserire a che progetto assegnare il suddetto dipendente\n\n"))
     for i in lista_dipendenti:
-        x = lista_dipendenti[i["nome"]]
-        if dip_scelto == x:
-            progetto.append(lista_dipendenti[i])
+        x = lista_dipendenti[i] #BUG
+        n = x["nome"]
+        if dip_scelto == n:
+            progetto.append(x)
+            print(progetto)
 
 
 
