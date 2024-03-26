@@ -49,7 +49,7 @@ def chiedi_valori(id,parco_auto) -> list[str]:
                     return id
                 
 
-def rimuovi_auto(parco_auto):
+def rimuovi_auto(id,parco_auto):
     id_scelto = int(input(""))
     conta = 0
     for auto in parco_auto:
@@ -85,7 +85,7 @@ def calcolo_bollo(kw):
         
 
 
-def profitto_veicolo(giorni_affitto,prezzo_giornaliero,gestione_bollo): #giorno_affitto * (prezzo_giornaliero - IVA) - costo_gestione-bollo
+def profitto_veicolo(parco_auto,auto): #giorno_affitto * (prezzo_giornaliero - IVA) - costo_gestione-bollo
     """
     "marca":a,
     "modello":b,
@@ -97,7 +97,9 @@ def profitto_veicolo(giorni_affitto,prezzo_giornaliero,gestione_bollo): #giorno_
     "prezzo_giornaliero":h,
     "id":id
     """
-    
+    gestione_bollo = auto["gestione_bollo"]
+    giorni_affitto= auto["giorni_affitto"]
+    prezzo_giornaliero = auto["prezzo_giornaliero"]
     iva = (22 / prezzo_giornaliero) * 100
     profitto = giorni_affitto * (prezzo_giornaliero - iva) - gestione_bollo
     return profitto
@@ -130,13 +132,9 @@ while True:
                 id_momentaneo = auto["id"]
                 print(f"il bollo dell'auto con id: {id_momentaneo} è di: {bollo} euro")
         case "3":
-            tot = 0
             for auto in parco_auto:
                 id_momentaneo = auto["id"]
-                gestione_bollo = auto["costo_gestione"]
-                giorni_affitto = auto["giorni_affitto"]
-                prezzo_giornaliero = auto["prezzo_giornaliero"]
-                profitto = profitto_veicolo(giorni_affitto,prezzo_giornaliero,gestione_bollo)
+                profitto = profitto_veicolo(parco_auto,auto)
                 print(f"il profitto è di: {profitto}, dell'auto di id: {id_momentaneo}")
                 
                 tot = profitto + tot

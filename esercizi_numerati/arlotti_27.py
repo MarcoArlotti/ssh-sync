@@ -23,7 +23,7 @@ def input_lista() -> list[int]:
     
     quanti_i = int(input("inserire quanti valori si vuole aggiungere\n\n"))
     while not quanti_i == 0 :
-        input_n = input("inserire un valore\n\n")
+        input_n = int(input("inserire un valore\n\n"))
         lista_inp.append(input_n)
         quanti_i -= 1
     return lista_inp
@@ -34,21 +34,32 @@ def is_pari(lista_inp) ->list[int]:
     """
     questa funziona calcola se il valore messo è pari o dispari assegnandogli True o False
     """
-    i = 0
-    while not len(lista_inp) == i:
-        lista_pos = []
-        ris = lista_inp[i,i] % 2
-        lista_pos[i,i].append(ris)
-        if ris == 0:
-            lista_pos[i,i].append(ris)
-            i += 1
+    lista_ris = []
+    
+    for numero in lista_inp:
+        controllo = numero // 2
+        if not controllo == float:
+            ris = True
+        else:
+            ris = False
+        lista_ris.append(ris)
+    return lista_ris
 
-    return lista_pos
-lista_inp = input_lista()
-lista_pos = is_pari(lista_inp)
-print(lista_pos)
 
 #funzione 3
-#def somma_quadrati(lista_inp: list[int]) -> int:
-#    lista_inp = input_lista(lista_inp)
-#    ris = is_pari()
+def somma_quadrati(lista_inp: list[int]) -> int:
+    momentaneo = 0
+    for numero in lista_inp:
+        
+        ris = numero // 2
+        if not ris == float:
+            ris_sqr = momentaneo + (numero * numero)
+        else:
+            pass
+    return ris_sqr
+
+
+lista_inp = input_lista()
+lista_ris = is_pari(lista_inp)
+ris_sqr = somma_quadrati(lista_inp)
+print(ris_sqr)
