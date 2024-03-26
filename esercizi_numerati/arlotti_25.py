@@ -15,6 +15,13 @@ Per il calcolo del bollo si consideri:
 aggiungere 
 20 a kW oltre i 185kW 
 """
+
+
+"""
+Percentuale = (parte / totale) × 100
+Ad esempio, se il biglietto del concerto costa 30 euro e hai uno sconto del 20%, puoi calcolare quanto è il 20% di 30 euro:
+20% di 30 euro = (30 × 20) / 100 = 6 euro.
+"""
 id = 0 #crea id
 parco_auto = []
 def chiedi_valori(id,parco_auto) -> list[str]:
@@ -22,11 +29,11 @@ def chiedi_valori(id,parco_auto) -> list[str]:
                     a = str(input("la marca della auto che si vuole aggiungere\n"))    #presa dei valori in input
                     b = str(input("il modello\n"))
                     c = str(input("la cilindrata\n"))
-                    d = str(input("la potenza\n"))
-                    e = str(input("l'anno di immatricolazione\n"))
-                    f = str(input("il costo della gestione\n"))
-                    g = str(input("i giorni che starà in affitto\n"))
-                    h = str(input("il prezzo giornaliero\n"))
+                    d = float(input("la potenza\n"))
+                    e = int(input("l'anno di immatricolazione\n"))
+                    f = float(input("il costo della gestione\n"))
+                    g = int(input("i giorni che starà in affitto\n"))
+                    h = float(input("il prezzo giornaliero\n"))
                     auto = {   
                     "marca":a,
                     "modello":b,
@@ -42,7 +49,7 @@ def chiedi_valori(id,parco_auto) -> list[str]:
                     return id
                 
 
-def rimuovi_auto(id,parco_auto):
+def rimuovi_auto(parco_auto):
     id_scelto = int(input(""))
     conta = 0
     for auto in parco_auto:
@@ -65,9 +72,35 @@ def calcolo_bollo(kw):
         bollo = 2,58*kw
     elif kw > 101:
         eccesso = kw - 100 
-        bollo = 2,58*kw
+        bollo_non_eccesso = 2,58 * kw
+        bollo_eccesso = eccesso * 3,87
+        bollo = bollo_non_eccesso + bollo_eccesso
+    elif kw > 185:
+        kw = kw + 20
+        eccesso = kw - 100 
+        bollo_non_eccesso = 2,58 * kw
+        bollo_eccesso = eccesso * 3,87
+        bollo = bollo_non_eccesso + bollo_eccesso
+    return bollo
         
 
+
+def profitto_veicolo(giorni_affitto,prezzo_giornaliero,gestione_bollo): #giorno_affitto * (prezzo_giornaliero - IVA) - costo_gestione-bollo
+    """
+    "marca":a,
+    "modello":b,
+    "cilindrata":c,
+    "potenza_kw":d,
+    "anno_immatricolazione":e,
+    "costo_gestione":f,
+    "giorni_affitto":g,
+    "prezzo_giornaliero":h,
+    "id":id
+    """
+    
+    iva = (22 / prezzo_giornaliero) * 100
+    profitto = giorni_affitto * (prezzo_giornaliero - iva) - gestione_bollo
+    return profitto
 
 
 
@@ -93,4 +126,19 @@ while True:
         case "2":
             for auto in parco_auto:
                 kw = auto["potenza_kw"]
-                calcolo_bollo(kw)
+                bollo = calcolo_bollo(kw)
+                id_momentaneo = auto["id"]
+                print(f"il bollo dell'auto con id: {id_momentaneo} è di: {bollo} euro")
+        case "3":
+            tot = 0
+            for auto in parco_auto:
+                id_momentaneo = auto["id"]
+                gestione_bollo = auto["costo_gestione"]
+                giorni_affitto = auto["giorni_affitto"]
+                prezzo_giornaliero = auto["prezzo_giornaliero"]
+                profitto = profitto_veicolo(giorni_affitto,prezzo_giornaliero,gestione_bollo)
+                print(f"il profitto è di: {profitto}, dell'auto di id: {id_momentaneo}")
+                
+                tot = profitto + tot
+        case "4":
+            print(f"il profitto totale è di {tot}")
