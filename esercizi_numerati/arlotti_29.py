@@ -4,7 +4,8 @@ Scrivere una funzione che ricevuta in ingresso una lista di dizionari contenenti
 "importo":128.54,
 "sconto_fattura":15}
 svolga le seguenti funzioni:
-1) Aggiunga ad ogni dizionario una nuova chiave "importo_scontato" al quale associa il valore dell'importo scontato in base alla percentuale indicata alla chiave "sconto_fattura";
+1) Aggiunga ad ogni dizionario una nuova chiave "importo_scontato" al quale associa il valore dell'importo scontato in base alla percentuale
+    indicata alla chiave "sconto_fattura";
 2) Restituisca una lista di float dove il primo elemento è il totale degli importi e il secondo il totale degli importi scontati;
 3) Restituisca None se la lista delle fatture è vuota.
 
@@ -56,10 +57,12 @@ fatture=[
 },
 ]
 def aggiungi_importo():
-    for i in range(len(fatture)):
-        importo = fatture[i]
-        #prendo la chiave sconto e lo divido per importo e faccio *100
-        scontato = importo / 
-        i["importo_scontato"]   #TODO cercare di capire come fare la richiesta 1)
-        #thisdict["color"] = "red"
+    for persone in fatture:
+        importo = persone["importo"]
+
+        sconto_fattura = persone["sconto_fattura"]
+        scontato = (importo / sconto_fattura)*100 #? non sembra calcolare correttamente la percentuale BUG
+        persone["importo_scontato"] = scontato
+
+aggiungi_importo()
 print(fatture)
