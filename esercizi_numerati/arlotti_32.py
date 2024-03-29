@@ -1,35 +1,37 @@
+
+lista1 = [45,75,25,68,98,12,21,84,54,62]
+lista2 = [42,78,23,74,95,16,27,88,51,66]
+lista3 = [
+    {"name":"Giovanni",
+     "surname":"Di Santo",
+     "age":42},
+     {"name":"Giuseppe",
+     "surname":"Mancini",
+     "age":75},
+     {"name":"Laura",
+     "surname":"Accardi",
+     "age":25},
+     {"name":"Lalla",
+     "surname":"Sallusti",
+     "age":68},
+     {"name":"Salvo",
+     "surname":"Olivieri",
+     "age":12},
+    ]
+
 """
-Exercise 1: Write to a File
-Create a new file named exercise1.txt and write the following lines to it:
-"Hello, World!"
-"Welcome to file handling in Python."
-Exercise 2: Read from a File
-Read the contents of the file exercise1.txt and print them to the console.
-Exercise 3: Append to a File
-Append the following line to the file exercise1.txt:
-"This line was appended."
-Exercise 4: Read Lines from a File
-Read the file exercise1.txt line by line and print each line to the console.
-Exercise 5: Copy a File
-Create a copy of the file exercise1.txt and name it exercise1_copy.txt.
+Date le seguenti liste:
+1) ordinare la prima in ordine crescente
+2) ordinare la seconda in ordine decrescente
+3) ordinare la terza per età decrescente
+4) ordinare la terza in base alla lunghezza del cognome
 """
-import os
+lista1.sort()
+print(lista1)
 
-f = open("exercise1.txt","w")
-f.write("Hello, World!\nWelcome to file handling in python.\n") #creazione del file python
-f.close()
+lista2.sort(reverse=True)
+print(lista2)
 
-f = open("exercise1.txt","r") #print del file intero
-print(f.read())
-f.close()
-
-f = open("exercise1.txt","a")
-f.write("this line was appended.\n") #aggiungi una riga
-f.close()
-
-f = open("exercise1.txt", "r") #riga per riga
-with open("exercise1_copy.txt","a") as e:
-  for riga in f:
-    print(riga)
-    e.write((riga))
-
+lunghezza = {}
+for persone in lista3:
+    persone["nome"]
