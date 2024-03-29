@@ -61,8 +61,35 @@ def aggiungi_importo():
         importo = persone["importo"]
 
         sconto_fattura = persone["sconto_fattura"]
-        scontato = (importo / sconto_fattura)*100 #? non sembra calcolare correttamente la percentuale BUG
-        persone["importo_scontato"] = scontato
+        scontato = (importo * sconto_fattura)/100 #calcolo della percentuale
+        tot = importo - scontato
+        persone["importo_scontato"] = tot
+
+
+
+def liste_scontato_importo():
+    tot = 0
+    lista_sconto_fatture = []
+    for persone in fatture:
+
+        importo = persone["importo"]
+        tot = tot + importo
+
+    if tot == 0:
+        tot = None
+    lista_sconto_fatture.append(tot)
+
+    for persone in fatture:
+        tot = 0
+        sconto_fatture = persone["importo_scontato"]
+        tot = tot + sconto_fatture
+
+    lista_sconto_fatture.append(sconto_fatture)
+    print(lista_sconto_fatture)
+
+
+
+
 
 aggiungi_importo()
-print(fatture)
+liste_scontato_importo()
