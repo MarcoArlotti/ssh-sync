@@ -34,4 +34,13 @@ print(lista2)
 
 lunghezza = {}
 for persone in lista3:
-    persone["nome"]
+    cognome = persone["surname"]
+    num_lettere = len(cognome)
+    print(num_lettere)
+    persone["lunghezza_cognome"] = num_lettere
+    lunghezza["cognome"] = cognome
+    lunghezza["lunghezza:cognome"] = num_lettere
+    
+
+
+print(lista3)
