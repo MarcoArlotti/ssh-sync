@@ -37,7 +37,8 @@
     {
         "id": "Arlotti",
         "importo": 245.78,
-        "sconto_fattura": 19
+        "sconto_fattura": 19,
+        "importo_scontato": 199.0818
     },
     {
         "id": "Nedria",

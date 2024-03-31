@@ -6,7 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+#json
+*.json
+
+#file
 .prova.py
+
 # Distribution / packaging
 .Python
 build/
