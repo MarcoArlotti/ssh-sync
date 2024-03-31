@@ -39,7 +39,7 @@ for persone in lista3:
     print(num_lettere)
     persone["lunghezza_cognome"] = num_lettere
     lunghezza["cognome"] = cognome
-    lunghezza["lunghezza:cognome"] = num_lettere
+    lunghezza["lunghezza_cognome"] = num_lettere
     
 
 
