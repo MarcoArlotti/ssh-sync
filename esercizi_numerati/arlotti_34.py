@@ -15,7 +15,7 @@ def aggiungi_importo(persona):
     persona["importo_scontato"] = tot
 
 
-with open("es_34_dati_input.json","r") as file_input:
+with open("dati_es_34.json","r") as file_input:
 
     try:
         fatture = json.load(file_input)
@@ -28,10 +28,26 @@ with open("es_34_dati_input.json","r") as file_input:
     except:
         fatture = []
         print("non ci sono fatture presenti")
-for persona in fatture:
-    aggiungi_importo(persona)
-for persona in fatture:
-    importo_scontato = persona["importo_scontato"]
-    #lista_ordinata = riordinamento(importo_scontato)
-with open("file_output_es34.json","w") as file_output:
-#    file_output = json.dumps(lista_ordinata)
+def riordina(fatture):
+    return fatture["sconto_fattura"]
+
+
+aggiungi_importo(persona)
+lista_ordinata = fatture.sort(key=riordina)
+print(lista_ordinata)
+"""
+def myFunc(e):
+  return e['year']
+
+cars = [
+  {'car': 'Ford', 'year': 2005},
+  {'car': 'Mitsubishi', 'year': 2000},
+  {'car': 'BMW', 'year': 2019},
+  {'car': 'VW', 'year': 2011}
+]
+
+cars.sort(key=myFunc)
+"""
+#with open("file_output_es34.json","w") as file_output:
+#    file_output = json.dump(fatture)
+#    
