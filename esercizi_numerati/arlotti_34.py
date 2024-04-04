@@ -37,8 +37,7 @@ fatture = calcolo_prezzo()
 moment =  []
 with open("file_output_es34.json","w") as file_json:
   json.dump(moment,file_json,indent=4)
-  open("file_output_es34.json")
-for persona in fatture:
-   persona["importo_scontato"]
- 
-    #json.dump(fatture,file_json,indent=4)
+file_json = open("file_output_es34.json","a"):
+  for persona in fatture:
+     persona["importo_scontato"]
+    json.dump(fatture,file_json,indent=4)
