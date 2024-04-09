@@ -23,7 +23,7 @@ lista3 = [
 Date le seguenti liste:
 1) ordinare la prima in ordine crescente
 2) ordinare la seconda in ordine decrescente
-3) ordinare la terza per età decrescente
+3) ordinare la terza per age decrescente
 4) ordinare la terza in base alla lunghezza del cognome
 """
 lista1.sort()
@@ -33,12 +33,16 @@ lista2.sort(reverse=True)
 print(lista2)
 
 lunghezza = {}
-lista3 = {}
-for persone in lista3:
-    età = persone["età"]
-    lista3 = {}
-    persone["età"] = 
-    lunghezza.append()
+
+def myFunc(e):
+  return e['age']
+
+def riordina(lista3):
+    lista3.sort(key=myFunc)
+
+    return lista3
+lista3_ordinata = riordina(lista3)
+print(lista3_ordinata)
 
 
 
