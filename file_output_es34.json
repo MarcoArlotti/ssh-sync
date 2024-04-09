@@ -1,1 +1,62 @@
-[]
+[
+    {
+        "id": "Santini",
+        "importo": 245.78,
+        "sconto_fattura": 22,
+        "importo_scontato": 191.7084
+    },
+    {
+        "id": "Clementi",
+        "importo": 245.78,
+        "sconto_fattura": 20,
+        "importo_scontato": 196.624
+    },
+    {
+        "id": "Arlotti",
+        "importo": 245.78,
+        "sconto_fattura": 19,
+        "importo_scontato": 199.0818
+    },
+    {
+        "id": "Pontellini",
+        "importo": 245.78,
+        "sconto_fattura": 18,
+        "importo_scontato": 201.5396
+    },
+    {
+        "id": "Bilancioni",
+        "importo": 245.78,
+        "sconto_fattura": 15,
+        "importo_scontato": 208.913
+    },
+    {
+        "id": "Monticelli",
+        "importo": 245.78,
+        "sconto_fattura": 10,
+        "importo_scontato": 221.202
+    },
+    {
+        "id": "romagna",
+        "importo": 245.78,
+        "sconto_fattura": 8,
+        "importo_scontato": 226.1176
+    },
+    {
+        "id": "Nedria",
+        "importo": 245.78,
+        "sconto_fattura": 7,
+        "importo_scontato": 228.5754
+    },
+    {
+        "id": "Sanchi",
+        "importo": 245.78,
+        "sconto_fattura": 5,
+        "importo_scontato": 233.49099999999999
+    },
+    {
+        "id": "Kola",
+        "importo": 325.71,
+        "sconto_fattura": 12,
+        "importo_scontato": 286.6248
+    }
+]

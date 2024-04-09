@@ -33,14 +33,32 @@ lista2.sort(reverse=True)
 print(lista2)
 
 lunghezza = {}
+lista3 = {}
+for persone in lista3:
+    età = persone["età"]
+    lista3 = {}
+    persone["età"] = 
+    lunghezza.append()
+
+
+
+
+
 for persone in lista3:
     cognome = persone["surname"]
     num_lettere = len(cognome)
-    print(num_lettere)
+    
     persone["lunghezza_cognome"] = num_lettere
     lunghezza["cognome"] = cognome
     lunghezza["lunghezza_cognome"] = num_lettere
-    
-
-
 print(lista3)
+
+def myFunc(e):
+  return e['lunghezza_cognome']
+
+def riordina(lista3):
+    lista3.sort(key=myFunc)
+
+    return lista3
+lista3_ordinata = riordina(lista3)
+print(lista3_ordinata)

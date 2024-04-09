@@ -5,6 +5,7 @@
 4) Salva la lista nel file output_json.json
 """
 import json
+
 def aggiungi_importo(fatture):
   for persona in fatture:
       importo = persona["importo"]
@@ -14,8 +15,13 @@ def aggiungi_importo(fatture):
       tot = importo - scontato
       persona["importo_scontato"] = tot
 
+def myFunc(e):
+  return e['importo_scontato']
+
 def riordina(fatture):
-    return fatture["sconto_fattura"]
+    fatture.sort(key=myFunc)
+
+    return fatture
 
 def calcolo_prezzo():
   with open("dati_es_34.json","r") as file_input:
@@ -25,7 +31,10 @@ def calcolo_prezzo():
         nome = persona["id"]
         importo = persona["importo"]
         sconto_fattura = persona["sconto_fattura"]
-        print(f"la {nome} ha un importo di {importo}, con uno sconto della fattura del {sconto_fattura}%")  #stampa delle fatture in ordine
+        importo_scontato = persona["importo_scontato"]
+        print(f"la {nome} ha un importo di {importo}, \
+              con uno sconto della fattura del {sconto_fattura}% \
+                importo scontato {importo_scontato}" )  #stampa delle fatture in ordine
 
   return fatture
   
@@ -33,11 +42,7 @@ def calcolo_prezzo():
 
 
 
-fatture = calcolo_prezzo()
-moment =  []
+fatture_non_ordinate = calcolo_prezzo()
+fatture_ordinate = riordina(fatture_non_ordinate) 
 with open("file_output_es34.json","w") as file_json:
-  json.dump(moment,file_json,indent=4)
-file_json = open("file_output_es34.json","a"):
-  for persona in fatture:
-     persona["importo_scontato"]
-    json.dump(fatture,file_json,indent=4)
+  json.dump(fatture_ordinate,file_json,indent=4)
