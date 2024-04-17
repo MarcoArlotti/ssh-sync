@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Links Page</title>
+</head>
+<body>
+    <h1>Links</h1>
+    <ol>
+        {{%for link in lista_link%}}
+        <li><a href={{link.href}}>{{link.text}}</a></li>
+    </ol>
+</body>
+</html>
