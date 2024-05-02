@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<head>
+    <h1>{{ flashcard.question }}</h1>
+    <form action="/answer/{{ flashcard.id }}" method="post">
+        <input type="text" name="answer">
+        <input type="submit" value="Submit">
+    </form>
+</head>
