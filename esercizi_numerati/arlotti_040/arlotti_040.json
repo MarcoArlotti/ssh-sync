@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "name": "Spaghetti Carbonara",
+        "ingredients": ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese"],
+        "instructions": "Boil the spaghetti. Fry the pancetta. Mix eggs and cheese. Combine everything."
+    },
+    {
+        "id": 2,
+        "name": "pasta all'arrabbiata",
+        "ingredients": ["Spaghetti/pasta","tomato source","chili","prezzemolo","garlic","oil"],
+        "instructions": "Boil the spaghetti or pasta. warm up the mix of galic, oil, a small ammount of salt and the tomato source and after it boil up cut the gas and mix with the pasta/spagetti and serve."
+    }
+
+]
